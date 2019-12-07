@@ -1,0 +1,5 @@
+Useful prikazy:
+
+document.querySelector('video').playbackRate = 2;   v konzoli zrychli video 2x
+
+browser.find_by_id("movie_player").click()    vyhleda prehravac na yt, klikne na nej a tim spusti video
