@@ -1,3 +1,4 @@
+import sys
 import time
 from selenium import webdriver
 from stem import Signal
@@ -18,9 +19,18 @@ def get_tor_profile():
     return tor_profile
 
 
-driver = webdriver.Firefox(get_tor_profile())
+def getIP(source_code):
+    tmp = str(source_code).split("<pre>")
+    ip = tmp[1].split("</pre>")[0]
+    return ip
 
-for i in range(5):
-    driver.get("http://www.icanhazip.com")
-    switchIP()
-    time.sleep(5)
+
+if __name__ == "__main__":
+    driver = webdriver.Firefox(get_tor_profile())
+
+    for i in range(5):
+        driver.get("http://www.icanhazip.com")
+        print("CURRENT IP: ", end="")
+        print(getIP(driver.page_source))
+        switchIP()
+        time.sleep(5)
