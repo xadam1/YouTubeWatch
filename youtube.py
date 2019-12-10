@@ -1,4 +1,3 @@
-import sys
 import time
 from selenium import webdriver
 from stem import Signal
@@ -25,12 +24,27 @@ def getIP(source_code):
     return ip
 
 
-if __name__ == "__main__":
-    driver = webdriver.Firefox(get_tor_profile())
+def load_links(path):
+    file = open(path, 'r')
+    contents = file.readlines()
+    urls = []
+    for link in contents:
+        urls.append(link.strip('\n'))
+    print("Loaded links: ", end="")
+    print(urls)
+    file.close()
 
-    for i in range(5):
-        driver.get("http://www.icanhazip.com")
-        print("CURRENT IP: ", end="")
-        print(getIP(driver.page_source))
-        switchIP()
-        time.sleep(5)
+    return urls
+
+
+if __name__ == "__main__":
+    # driver = webdriver.Firefox(get_tor_profile())
+
+    links = load_links("links.txt")
+
+    # for i in range(5):
+    #     driver.get("http://www.icanhazip.com")
+    #     print("CURRENT IP: ", end="")
+    #     print(getIP(driver.page_source))
+    #     switchIP()
+    #     time.sleep(5)
