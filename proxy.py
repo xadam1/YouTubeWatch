@@ -15,9 +15,3 @@ def get_tor_profile():
     tor_profile.set_preference('network.proxy.socks', '127.0.0.1')
     tor_profile.set_preference('network.proxy.socks_port', 9150)
     return tor_profile
-
-
-def getIP(source_code):
-    tmp = str(source_code).split("<pre>")
-    ip = tmp[1].split("</pre>")[0]
-    return ip
