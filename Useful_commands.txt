@@ -1,13 +1,13 @@
 Useful commands:
-document.querySelector('video').playbackRate = 2;   v konzoli zrychli video 2x
 
-browser.find_by_id("movie_player").click()    vyhleda prehravac na yt, klikne na nej a tim spusti video
-
-ExitNodes {gb} in D:\Tor Browser\Browser\TorBrowser\Data\Tor    to specify IP address location (Great Britain)
-
-top   in terminal shows cpu load
+document.querySelector('video').playbackRate = 2;   -- js in browser console that plays the video faster
+browser.find_by_id("movie_player").click()    -- finds video player on yt, clicks on it and plays it
+ExitNodes {gb} in D:\Tor Browser\Browser\TorBrowser\Data\Tor    -- to specify IP address location (Great Britain)
+top   -- in terminal shows cpu load
 
 
 Useful links:
+
 http://www.icanhazip.com      -- returns IP
 http://www.thedurkweb.com/automated-anonymous-interactions-with-websites-using-python-and-tor/
+https://realpython.com/python3-object-oriented-programming/?fbclid=IwAR3vb2-7TvxW-1hukQfIFoI5PBEv-fqG_ANoNvpZV8JevwQ-yX3W7_ME_Nc    -- OOP
