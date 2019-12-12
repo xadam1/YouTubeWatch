@@ -5,6 +5,8 @@ browser.find_by_id("movie_player").click()    vyhleda prehravac na yt, klikne na
 
 ExitNodes {gb} in D:\Tor Browser\Browser\TorBrowser\Data\Tor    to specify IP address location (Great Britain)
 
+top   in terminal shows cpu load
+
 
 Useful links:
 http://www.icanhazip.com      -- returns IP
