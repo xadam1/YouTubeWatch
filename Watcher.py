@@ -18,7 +18,7 @@ class Watcher(threading.Thread):
 
     video_links = links.load("links.txt")
     ip_addresses = set()
-    watchtime = 0
+    watchtime = 0   # minutes
 
     def __init__(self):
         threading.Thread.__init__(self)
@@ -97,7 +97,7 @@ class Watcher(threading.Thread):
         print(f"{self.name}\t{self.ip} \t\t {self.get_video_title()} \t\t {video_duration}\n")
         realistic_time = video_seconds - randint(0, 15)
         time.sleep(realistic_time)
-        Watcher.watchtime += realistic_time
+        Watcher.watchtime += realistic_time // 60
         # self.countdown(video_seconds, video_duration)
 
     def set_ip(self):
