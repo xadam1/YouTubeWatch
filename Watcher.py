@@ -18,6 +18,7 @@ class Watcher(threading.Thread):
 
     video_links = links.load("links.txt")
     ip_addresses = set()
+    watchtime = 0
 
     def __init__(self):
         threading.Thread.__init__(self)
@@ -34,30 +35,31 @@ class Watcher(threading.Thread):
             try:
                 self.set_ip()
 
-                if self.ip in self.ip_addresses:
+                if self.ip in Watcher.ip_addresses:
                     raise IPAddressError
 
-                self.ip_addresses.add(self.ip)
+                Watcher.ip_addresses.add(self.ip)
+
                 self.watch_video(self.video_links[randint(0, len(self.video_links) - 1)])
 
             # Occurs if the IP address is already being used
             except IPAddressError:
-                print("New IP Address Needed", end="\t")
+                print("New IP Address Needed")
 
             # Occurs if the same video is played too frequently.
             # Throws method set_ip()
             except IndexError:
-                print("RIP ANTIBOT", end="\t")
+                print("RIP ANTIBOT")
                 self.driver.quit()
                 self.driver = webdriver.Firefox(proxy.get_tor_profile())
                 self.driver.minimize_window()
             except Exception as e:
                 print(e, end="\t")
             finally:
-                self.ip_addresses.discard(self.ip)
-                print(f"{self.ip} ended.\n")
+                Watcher.ip_addresses.discard(self.ip)
+                print(f"{self.name}\t{self.ip} ended.\t Total watchtime: {Watcher.watchtime}\n")
 
-            time.sleep(randint(8, 13))
+            time.sleep(randint(5, 10))
             proxy.switchIP()
 
     def get_video_duration(self):
@@ -92,8 +94,10 @@ class Watcher(threading.Thread):
 
         self.driver.find_element_by_id("movie_player").click()  # plays the vid
         time.sleep(1.5)
-        print(f"{self.ip} \t\t {self.get_video_title()} \t\t {video_duration}\n")
-        time.sleep(video_seconds)
+        print(f"{self.name}\t{self.ip} \t\t {self.get_video_title()} \t\t {video_duration}\n")
+        realistic_time = video_seconds - randint(0, 15)
+        time.sleep(realistic_time)
+        Watcher.watchtime += realistic_time
         # self.countdown(video_seconds, video_duration)
 
     def set_ip(self):

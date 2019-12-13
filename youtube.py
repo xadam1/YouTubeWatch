@@ -8,4 +8,4 @@ if __name__ == "__main__":
         proxy.switchIP()
         watcher = Watcher()
         watcher.start()
-        time.sleep(randint(8, 13))
+        time.sleep(randint(5, 10))
