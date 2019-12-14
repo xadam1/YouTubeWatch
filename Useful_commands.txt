@@ -12,3 +12,4 @@ Useful links:
 http://www.icanhazip.com      -- returns IP
 http://www.thedurkweb.com/automated-anonymous-interactions-with-websites-using-python-and-tor/
 https://realpython.com/python3-object-oriented-programming/?fbclid=IwAR3vb2-7TvxW-1hukQfIFoI5PBEv-fqG_ANoNvpZV8JevwQ-yX3W7_ME_Nc    -- OOP
+https://developers.google.com/youtube/iframe_api_reference#Playback_quality   -- js for youtube video
