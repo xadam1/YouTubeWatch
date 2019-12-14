@@ -4,6 +4,7 @@ document.querySelector('video').playbackRate = 2;   -- js in browser console tha
 browser.find_by_id("movie_player").click()    -- finds video player on yt, clicks on it and plays it
 ExitNodes {gb} in D:\Tor Browser\Browser\TorBrowser\Data\Tor    -- to specify IP address location (Great Britain)
 top   -- in terminal shows cpu load
+/opt/vc/bin/vcgencmd measure_temp   -- in terminal shows temperature
 
 
 Useful links:
