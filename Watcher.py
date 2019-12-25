@@ -18,7 +18,7 @@ class Watcher(threading.Thread):
 
     video_links = links.load("links.txt")
     ip_addresses = set()
-    watchtime = 0   # minutes
+    watchtime = 0  # minutes
 
     def __init__(self):
         threading.Thread.__init__(self)
@@ -64,10 +64,8 @@ class Watcher(threading.Thread):
 
     def get_video_duration(self):
         """
-
         @return: video duration and the duration (string) in seconds (int)
         """
-
         duration = self.driver.find_elements_by_xpath("//span[@class='ytp-time-duration']")[0]
         duration = duration.text
         mins, seconds = duration.split(":")
@@ -76,10 +74,8 @@ class Watcher(threading.Thread):
 
     def get_video_title(self):
         """
-
         @return: video title as string
         """
-
         wait = WebDriverWait(self.driver, 10)
         name = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.title yt-formatted-string"))).text
         return name
@@ -88,7 +84,6 @@ class Watcher(threading.Thread):
         """
         Function which gets all the info about video and plays it. Also displays current state.
         """
-
         self.driver.get(url)
         video_duration, video_seconds = self.get_video_duration()
 
@@ -105,7 +100,6 @@ class Watcher(threading.Thread):
         Sets current ip address
         Throws IndexError if antispam bot pops out
         """
-
         self.driver.get("http://www.icanhazip.com")
         tmp = str(self.driver.page_source).split("<pre>")
         ip = tmp[1].split("</pre>")[0]

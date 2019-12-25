@@ -6,10 +6,12 @@ from random import randint
 if __name__ == "__main__":
     while True:
         try:
-            watchers_count = int(input("How many Watchers? "))
+            watchers_count = int(input("Number of bots: "))
+            if watchers_count < 1:
+                raise ValueError
             break
-        except Exception as e:
-            print("Somár, číslo veď...\n")
+        except ValueError as e:
+            print("Somár, číslo veď...")
 
     for _ in range(watchers_count):
         proxy.switchIP()
